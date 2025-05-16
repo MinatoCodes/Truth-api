@@ -114,7 +114,7 @@ const truthQuestions = [
 app.get('/', (req, res) => {
   const randomIndex = Math.floor(Math.random() * truthQuestions.length);
   const question = truthQuestions[randomIndex];
-  res.json({ truthQuestion: question });
+  res.send(question);
 });
 
 const PORT = process.env.PORT || 3000;
