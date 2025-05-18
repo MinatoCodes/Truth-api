@@ -80,7 +80,7 @@ const truthQuestions = [
   "Have you ever pretended to know something when you didn't?",
   "What's the most embarrassing thing you've done for attention?",
   "Have you ever lied in a relationship to avoid hurting someone?",
-  "What's the most impulsive thing you've ever done?",
+  "What's the most impulsive thing you've ever broadband?",
   "Have you ever had a crush on a fictional character?",
   "What's the weirdest thing you've Googled?",
   "Have you ever accidentally sent a message to the wrong person?",
@@ -114,12 +114,14 @@ const truthQuestions = [
 app.get('/', (req, res) => {
   const randomIndex = Math.floor(Math.random() * truthQuestions.length);
   const question = truthQuestions[randomIndex];
-  res.send(question);
+  res.json({
+    data: {
+      question: question
+    }
+  });
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Truth service is running on port ${PORT}`);
 });
-
-  
